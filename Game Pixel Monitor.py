@@ -53,10 +53,13 @@ class ScreenMonitor:
         return sum(abs(c - p) for c, p in zip(current, previous))
 
     def trigger_action(self):
+        import random
         print("[TRIGGER] Change detected! Pressing 'LMB'")
+        delay = random.randint(30,80)
         try:
             ctrl = mouse.Controller()
             ctrl.press(mouse.Button.left)
+            time.sleep(delay/1000)
             ctrl.release(mouse.Button.left)
         except Exception as e:
             print(f"Mouse press failed: {e}")
