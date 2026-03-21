@@ -4,6 +4,7 @@ import sys
 import mss
 from pynput import keyboard, mouse
 import threading
+import random
 
 # ================= CONFIGURATION =================
 # The 5x5 Region to monitor (Top-Left X, Top-Left Y, Width, Height)
@@ -45,6 +46,7 @@ class ScreenMonitor:
             print(f"Capture error: {e}")
             return None
 
+    # Sum of Absolute Difference calculations
     def calculate_difference(self, current, previous):
         if len(current) != len(previous):
             return 0

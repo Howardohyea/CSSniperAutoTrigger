@@ -18,6 +18,6 @@ This python script reads the change of a region of 5x5 pixels centered around yo
 # Known bugs and limitations
 `Capture error: gdi32.GetDIBits() failed.` is thrown after approximately 30 seconds of cumulative use, requiring a restart of the script. This ***may*** be a Resource leak on Windows related to the mss library. Flushing `mss` buffers or smarter threading may fix this. Code submissions is welcome. 
 
-**[Update]** Initializing `self.sct = mss.mss()` only once and reusing the same instance under `monitor_loop` instead of creating one instance for every frame captured fixed the GDI Leak.
+**[Update]** A recent commit fe1f4c6 has vastly improved the situation, bringing the use time up to approximately 5 minutes. However, the issue isn't fundamentally fixed and a GDI error is still thrown, requiring a restart of the script.
 
 Screen Capture and Keyboard/Mouse Manipulation *may* not work under Linux Wayland. This is untested however. Testers welcome.
